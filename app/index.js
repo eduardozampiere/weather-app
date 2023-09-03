@@ -5,13 +5,14 @@ import {
   Image,
   StyleSheet,
   ActivityIndicator,
+  Platform,
+  StatusBar as RNStatusBar,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Stack } from "expo-router";
 import SearchBar from "../components/SearchBar";
 import Forecast from "../components/Forecast";
 import useLocation from "../hooks/useLocation";
-
 const App = () => {
   const { forecast, loading } = useLocation();
   return (
@@ -27,6 +28,7 @@ const App = () => {
         style={{
           display: "flex",
           flexGrow: 1,
+          paddingTop: Platform.OS === "android" ? RNStatusBar.currentHeight : 0,
         }}
       >
         <SearchBar />

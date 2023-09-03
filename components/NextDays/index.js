@@ -49,6 +49,7 @@ const NextDays = () => {
       >
         {_forecast.forecastday.map((item) => (
           <NextDaysItem
+            key={item?.date}
             day={item?.date}
             forecast={item?.day?.condition?.text}
             degree={item?.day?.avgtemp_c}
